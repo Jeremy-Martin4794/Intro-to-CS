@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>
+            The Guessing Game
+        </title>
+        <h1 style = "color:green;" id=hi>
+            <center> Let's Play a Game </center>
+        </h1>
+    </head>
+    <body>
+        <center>
+            <p style = "color:blue;"> Can you guess the number, between 1-10 </p>
+            <p>
+                Enter your guess in this box: <input type = numeric id="userGuess" min="1" max="10" />
+            </p>
+            
+            <p style = "color:blue;">
+                Click check your Guess button after your enter your answer. 
+            </p>
+            <div>
+                <input type = "button" style="background-color:green" value = "check your guess" onclick = "checkGuess()"/>
+                
+            </div>
+            <p>
+                <div style = "border-style:groove; border-color:green" id="OutMsgBox">
+                    output message will appear here
+                </div>
+            </p>
+        </center>
+        
+    </body>
+    
+    <script>
+        var secretNumber;
+        secretNumber = Math.floor((Math.random()*10)+1);
+        var guessNumber;
+        
+        
+    function checkGuess( ){
+        guessNumber = document.getElementById("userGuess").value;
+        if(guessNumber>10||guessNumber<1){
+            document.getElementById("OutMsgBox").innerHTML = 'your input number is out of range';
+        }
+        else{
+            if(secretNumber>guessNumber){
+                document.getElementById("OutMsgBox").innerHTML = 'your input number is small';
+            }
+            if(secretNumber<guessNumber){
+                document.getElementById("OutMsgBox").innerHTML = 'your input number is big';
+            }
+            if(secretNumber==guessNumber){
+                document.getElementById("OutMsgBox").innerHTML = 'you guessed it';
+        }
+    }    
+    }    
+        
+    </script>
+    
+    
+    
+</html>

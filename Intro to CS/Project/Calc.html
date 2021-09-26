@@ -1,0 +1,203 @@
+<html>
+    
+    <style>
+        body {
+  background-image: url('Bambooimage.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: cover; 
+}
+
+.btn-group button {
+  background-color: lightgray;
+  color: black;
+  padding: 10px 39.5px;
+  width: 80
+}
+.btn-group button:hover {
+  background-color: gray;
+}
+
+  </style>
+    <body>
+        <center>       
+            <h1 style="font-family:verdana;color:green;">Calculator</h1>
+            <input type="numeric" id="answer" size="40">
+
+            </div>
+            <div class="btn-group">
+              <button onclick="seven()">7</button>
+              <button onclick="eight()">8</button>
+              <button onclick="nine()">9</button>
+            </div>
+            <div class="btn-group">
+              <button onclick="four()">4</button>
+              <button onclick="five()">5</button>
+              <button onclick="six()">6</button>
+            </div>
+            <div class="btn-group">
+              <button onclick="one()">1</button>
+              <button onclick="two()">2</button>
+              <button onclick="three()">3</button>
+            </div>
+            <div class="btn-group">
+              <button onclick="zero()">0</button>
+              <button onclick="plus()">+</button>
+              <button onclick="minus()">-</button>
+            </div>
+            </div>
+            <div class="btn-group">
+              <button onclick="decimal()">.</button>
+              <button onclick="divide()">/</button>
+              <button onclick="multiply()">*</button>
+            </div>
+            <div class="btn-group">
+              <button onclick="erase()">C</button>
+              <button onclick="factorial()">F</button>
+              <button onclick="equal()">=</button>
+            </div>
+    </center>
+        
+    </body>
+    <script>
+  //Number functions  
+        function seven() {
+            document.getElementById("answer").value=document.getElementById("answer").value + 7;
+        }
+        
+        function eight() {
+            document.getElementById("answer").value=document.getElementById("answer").value + 8;
+        }
+        
+        function nine() {
+            document.getElementById("answer").value=document.getElementById("answer").value + 9;
+        }
+        
+        function four() {
+            document.getElementById("answer").value=document.getElementById("answer").value + 4;
+        }
+        
+         function five() {
+            document.getElementById("answer").value=document.getElementById("answer").value + 5;
+        }
+        
+        function six() {
+            document.getElementById("answer").value=document.getElementById("answer").value + 6;
+        }
+        
+        function one() {
+            document.getElementById("answer").value=document.getElementById("answer").value + 1;
+        }
+        
+        function two() {
+            document.getElementById("answer").value=document.getElementById("answer").value + 2;
+        }
+        
+        function three() {
+            document.getElementById("answer").value=document.getElementById("answer").value + 3;
+        }
+        
+        function zero() {
+            document.getElementById("answer").value=document.getElementById("answer").value + 0;
+        }
+        
+        function decimal() {
+            document.getElementById("answer").value=document.getElementById("answer").value + ".";
+        }
+        
+        function erase() {
+            document.getElementById("answer").value=null; 
+        }
+   
+   //Operator functions      
+       function plus() {         
+             firstNumber = parseFloat(document.getElementById("answer").value);
+             plusOperator = "+";
+             document.getElementById("answer").value=null;
+        }
+        
+        function minus() {
+            firstNumber = parseFloat(document.getElementById("answer").value);
+            minusOperator = "-";
+            document.getElementById("answer").value=null; 
+        }
+        
+          function multiply() {
+            firstNumber = parseFloat(document.getElementById("answer").value);
+            multiplyOperator = "*";
+            document.getElementById("answer").value=null; 
+        }
+         
+          function divide() {
+            firstNumber = parseFloat(document.getElementById("answer").value);
+            divideOperator = "/";
+            document.getElementById("answer").value=null;
+        }
+        
+          function factorial() {
+            firstNumber = parseFloat(document.getElementById("answer").value);
+            factorialOperator = "F";
+        }
+        
+  //Declared variables 
+        var firstNumber;
+        var secondNumber;
+        var plusOperator;
+        var minusOperator;
+        var multiplyOperator;
+        var divideOperator;
+        var factorialOperator;
+        var solution;
+  
+  //This happens when the equals button is pushed      
+     function equal() {
+        secondNumber=parseFloat(document.getElementById("answer").value); 
+            
+           if (plusOperator=="+") {
+              solution=firstNumber+secondNumber;
+              document.getElementById("answer").value=solution;
+              plusOperator=null;
+           }
+              
+          else if (minusOperator=="-") {    
+              solution=firstNumber-secondNumber;
+              document.getElementById("answer").value=solution;
+              minusOperator=null;
+          }  
+            
+          else if (multiplyOperator=="*") {    
+              solution=firstNumber*secondNumber;
+              document.getElementById("answer").value=solution;
+              multiplyOperator=null;
+          }  
+       
+          else if (divideOperator=="/") {    
+              solution=firstNumber/secondNumber;
+              document.getElementById("answer").value=solution;
+              divideOperator=null;
+          } 
+       
+          else if (factorialOperator=="F") {
+            solution=1;
+             do {
+                solution=solution*secondNumber;
+                secondNumber --;
+                
+   //alternate method for the loop
+            //    do {
+            //    solution=solution*secondNumber*(secondNumber-1);
+            //    secondNumber=secondNumber-2;              
+            //  }
+            
+              }
+              while (secondNumber>1);
+              factorialOperator=null;
+              document.getElementById("answer").value=solution;
+          }     
+             
+       
+       
+       
+        }
+        
+    </script>

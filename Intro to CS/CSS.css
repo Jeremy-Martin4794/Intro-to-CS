@@ -1,0 +1,28 @@
+body {
+    background: gray;
+    color: white;
+    font-family: cursive, sans-serif;
+    font-size: 15px;
+    border-style: solid;
+    border-color: black;
+
+}
+
+h1 {
+    border-bottom-style: solid;
+    border-bottom-color: black;
+    
+}
+
+img {
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+ul {
+    list-style-image: url('earth.png')
+
+}

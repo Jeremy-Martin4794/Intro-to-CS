@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+        <title>Google API</title>
+        <style>
+      html, body, #map-canvas {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+    </style>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHFjv8_S4Nx_MF5q0eypFXhjEy0sLrY0k">
+    </script>
+    <script type="text/javascript">
+
+function initialize() {
+  
+  var myLatlng1 = new google.maps.LatLng(41.391517,-81.221810);
+  var myLatlng2 = new google.maps.LatLng(41.363694,-81.388495);
+  var myLatlng3 = new google.maps.LatLng(41.319770,-81.036371);
+  
+  var mapOptions = {
+    zoom: 10,
+    center: myLatlng1,
+    mapTypeId: google.maps.MapTypeId.TERRAIN   // ROADMAP, HYBRID, SATELLITE, TERRAIN
+  }
+
+// The map and options
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  
+// Stuff for first locator
+
+  var marker1 = new google.maps.Marker({
+      position: myLatlng1,
+      map: map,
+      title: 'My House'
+  });
+  
+  var contentString1 =
+    '<div id="content1" style="width:170px">'+
+      '<div id="siteNotice1">'+
+      '</div>'+
+      '<h3 id="Heading1">My House</h3>'+
+      '<div id="bodyContent1">'+
+        '<p><b>My House</b>, is located in Auburn Township Ohio. ' +
+          'I have lived here for twelve years.' +
+        '</p>' +
+      '</div>' +
+    '</div>';
+    
+  var infowindow1 = new google.maps.InfoWindow({
+      content: contentString1
+  });
+  
+    google.maps.event.addListener(marker1, 'click', function() {
+    infowindow1.open(map,marker1);
+  });
+  
+// Stuff for second locator
+
+  var contentString2 =
+    '<div id="content2" style="width:150px">'+
+      '<div id="siteNotice2">'+ '<img src="https://ede-mi.com/wp-content/uploads/2015/02/464286_10150671250924593_288836007_o-1170x658.jpg "  hieght = "150" width = "150"   >' +
+      '</div>' +
+      '<h3 id="Heading2">Parkside Church</h3>'+
+      '<div id="bodyContent2">'+
+        '<p><b>Parkside Church</b>, is a church located in Bainbridge Ohio.' +
+          '<a href="https://www.parksidechurch.com/"> Parkside Website</a>' +
+        '</p>'+
+      '</div>'+
+    '</div>';
+    
+  var infowindow2 = new google.maps.InfoWindow({
+      content: contentString2
+  });  
+    
+  var marker2 = new google.maps.Marker({
+      position: myLatlng2,
+      map: map,
+      title: 'Parkside Church'
+  });
+   
+  google.maps.event.addListener(marker2, 'click', function() {
+    infowindow2.open(map,marker2);
+  });
+  
+   
+// Stuff for third locator
+  
+  var contentString3 =
+    '<div id="content3" style="width:200px">'+ 
+      '<div id="siteNotice3">'+ '<img src="https://media-cdn.tripadvisor.com/media/photo-s/04/a2/c1/e6/nelson-kennedy-ledges.jpg"  hieght = "150" width = "200"   >' +
+      '</div>' +
+      '</div>'+
+      '<h3 id="Heading3">Nelson Ledges State Park</h3>'+
+      '<div id="bodyContent3">'+
+	'<p><b>Pretty cool park</b> <br>' +
+          '<a href="http://parks.ohiodnr.gov/"> Nelson Ledges Website</a>' +
+	'</p>' +
+      '</div>' +
+    '</div>';
+    
+  var infowindow3 = new google.maps.InfoWindow({
+      content: contentString3
+  });
+  
+  var marker3 = new google.maps.Marker({
+      position: myLatlng3,
+      map: map,
+      title: 'Nelson Ledges State Park'
+  });
+   
+  google.maps.event.addListener(marker3, 'click', function() {
+    infowindow3.open(map,marker3);
+  });
+  
+  
+}  // end of initialize function
+
+//call the initialize function when the page loads
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  
+  
+  <body>
+    <CENTER> <h2> Google API Lab Example </h2> </CENTER>
+    <div id="map-canvas"></div>
+  </body>
+</html>

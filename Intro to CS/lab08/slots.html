@@ -1,0 +1,90 @@
+<html>
+    
+    <head>
+        <title> Slots Machine </title>
+         <script type="text/javascript" src="https://web.cs.kent.edu/~lvolkert/Lab8/random.js"></script>
+         <script language="javascript">
+            function spinslots(){
+                document.getElementById('output').innerHTML = "try to spin";
+                var r1 = RandomInt(1, 4);
+                var r2 = RandomInt(1, 4); 
+                var r3 = RandomInt(1, 4);
+                var credits;
+                credits = parseInt(document.getElementById("box").value); 
+                
+                if (credits<= 0){
+                    document.getElementById('output').innerHTML = "You don't have enough credits!"
+                    return; 
+                }
+                
+                if(r1==r2&&r1==r3){
+                    credits = credits + 20;
+                    document.getElementById('output').innerHTML = "you hit the jackpot!"
+                }
+                
+                credits = credits - 1;
+                document.getElementById('box').value = credits;
+                
+                if(r1==1){
+                    document.getElementById('image1').src = "images/bar.jpg";
+                }
+                
+                if(r1==2){
+                    document.getElementById('image1').src = "images/cherry.jpg";
+                }
+                if(r1==3){
+                    document.getElementById('image1').src = "images/lemon.jpg";
+                }
+                if(r1==4){
+                    document.getElementById('image1').src = "images/donut.jpg";
+                }
+                
+                if(r2==1){
+                    document.getElementById('image2').src = "images/bar.jpg";
+                }
+                
+                if(r2==2){
+                    document.getElementById('image2').src = "images/cherry.jpg";
+                }
+                if(r2==3){
+                    document.getElementById('image2').src = "images/lemon.jpg";
+                }
+                if(r2==4){
+                    document.getElementById('image2').src = "images/donut.jpg";
+                }
+                
+                if(r3==1){
+                    document.getElementById('image3').src = "images/bar.jpg";
+                }
+                
+                if(r3==2){
+                    document.getElementById('image3').src = "images/cherry.jpg";
+                }
+                if(r3==3){
+                    document.getElementById('image3').src = "images/lemon.jpg";
+                }
+                if(r3==4){
+                    document.getElementById('image3').src = "images/donut.jpg";
+                }
+            }
+         </script>
+    </head>
+    <body>
+        <h1 style = "text-align:center;color:green"> Click to Win </h1>
+        <center>
+            
+        <br />
+    	<image id="image1" src="images/bar.jpg" border="2" width="200" height="300"> 
+    	<image id="image2" src="images/bar.jpg" border="2" width="200" height="300"> 
+    	<image id="image3" src="images/bar.jpg" border="2" width="200" height="300"> 
+        <br />
+            
+            <input type = 'button' value="click to spin" onclick="spinslots();">
+            <br>
+            Credits: <input type = "text" id = "box" value = "20">
+            <div style = "border-style:groove;border-color:black" id ='output'> Try! </div>
+            
+        </center>
+        
+    </body>
+</html>
